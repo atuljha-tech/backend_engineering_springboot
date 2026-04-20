@@ -1,0 +1,170 @@
+{
+  "info": {
+    "name": "Virality Engine API",
+    "description": "Backend Engineering Assignment - API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"john_doe\",\n  \"isPremium\": false\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "users"]
+        }
+      }
+    },
+    {
+      "name": "Create Bot",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"FriendlyBot\",\n  \"personaDescription\": \"A friendly and helpful bot\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/bots",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "bots"]
+        }
+      }
+    },
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"USER\",\n  \"content\": \"This is my first post!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "posts"]
+        }
+      }
+    },
+    {
+      "name": "Add Comment (Bot)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"BOT\",\n  \"content\": \"Great post!\",\n  \"parentCommentId\": null\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts/1/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "posts", "1", "comments"]
+        }
+      }
+    },
+    {
+      "name": "Add Comment (User)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 2,\n  \"authorType\": \"USER\",\n  \"content\": \"Thanks for sharing!\",\n  \"parentCommentId\": null\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts/1/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "posts", "1", "comments"]
+        }
+      }
+    },
+    {
+      "name": "Like Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts/1/like",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "posts", "1", "like"]
+        }
+      }
+    },
+    {
+      "name": "Nested Comment (Reply)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"BOT\",\n  \"content\": \"I agree with you!\",\n  \"parentCommentId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts/1/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "posts", "1", "comments"]
+        }
+      }
+    }
+  ]
+}
